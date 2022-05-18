@@ -8,13 +8,13 @@ typedef int (*IPC_Stub_Proc_fn)(int cmd, IPC_Parcel data, IPC_Parcel reply, void
 
 struct IPC_Stub_s
 {
-	pthread_t    mThread;
+    pthread_t    mThread;
 
-	int          mPipe[2];
-	IPC_Session  mSession;
-	
-	IPC_Stub_Proc_fn mProc;
-	void*            mProcParam;
+    int          mPipe[2];
+    IPC_Session  mSession;
+    
+    IPC_Stub_Proc_fn mProc;
+    void*            mProcParam;
 };
 
 

@@ -16,15 +16,15 @@ extern "C"
 typedef unsigned char  UINT8;
 typedef unsigned short UINT16;
 typedef unsigned int   UINT32;
-typedef char 		   CHAR;
+typedef char            CHAR;
 
-#define IPC_Malloc		malloc
+#define IPC_Malloc        malloc
 #define IPC_Realloc     realloc
-#define IPC_Calloc		calloc
-#define IPC_Strdup 		strdup
-#define IPC_Free 		free
+#define IPC_Calloc        calloc
+#define IPC_Strdup         strdup
+#define IPC_Free         free
 
-#define IPC_SAFE_FREE(x) 	if((x) != NULL) { IPC_Free(x); (x) = NULL; }
+#define IPC_SAFE_FREE(x)     if((x) != NULL) { IPC_Free(x); (x) = NULL; }
 
 /*
  * Parcel Definition
@@ -41,11 +41,11 @@ typedef struct IPC_Session_s* IPC_Session;
 
 struct IPC_Session_s
 {
-	int         mFd;
-	const char* mURI;
-	
-	int (*Send)(IPC_Session conn, int cmd, IPC_Parcel parcel);
-	int (*Recv)(IPC_Session conn, int* pCmd, IPC_Parcel parcel);
+    int         mFd;
+    const char* mURI;
+    
+    int (*Send)(IPC_Session conn, int cmd, IPC_Parcel parcel);
+    int (*Recv)(IPC_Session conn, int* pCmd, IPC_Parcel parcel);
 };
 
 extern IPC_Session IPC_Session_Create(int nFd, const char* pszURI);
@@ -59,8 +59,8 @@ typedef struct IPC_Server_s* IPC_Server;
 
 struct IPC_Server_s
 {
-	char mURI[MAX_URI_LEN];
-	int  mFd;
+    char mURI[MAX_URI_LEN];
+    int  mFd;
 };
 
 extern IPC_Server  IPC_Server_Create(const char* pszURI);
